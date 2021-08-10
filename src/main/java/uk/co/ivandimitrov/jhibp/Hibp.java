@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Hibp {
 
-    public static boolean hasPasswordBeenPwned(final String password) throws IOException, InterruptedException, NoSuchAlgorithmException {
+    public static boolean password(final String password) throws IOException, InterruptedException, NoSuchAlgorithmException {
         final var encryptedString = encryptInput(password).toUpperCase();
         final var response = HibpPasswordService.getInstance().callHibpPasswordApi(encryptedString.substring(0, 5));
         return response.body().contains(encryptedString.substring(5));
